@@ -69,11 +69,17 @@ prompt_reboot() {
   esac
 }
 
+echo -e "cleanup"
 cleanup
+echo -e "check installer"
 check_installer
+echo -e "download config"
 download_config
+echo -e "apply"
 run_apply
+echo -e "disko"
 run_disko
+echo -e "setup files"
 setup_files
 install_nixos
 cleanup
