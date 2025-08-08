@@ -20,5 +20,10 @@ in
           (filter (n: match ".*\\.nix" n != null ||
                       pathExists (path + ("/" + n + "/default.nix")))
                   (attrNames (readDir path)))
+
+      ++ [(import (builtins.fetchTarball {
+               url = "https://github.com/nix-community/emacs-overlay/archive/refs/heads/master.tar.gz";
+               sha256 = emacsOverlaySha256;
+           }))];
   };
 }
