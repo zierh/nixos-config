@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nix-shell -p disko
 set -exu
 
 check_installer() {
@@ -31,7 +31,6 @@ run_apply() {
 }
 
 run_disko() {
-  nix-shell -p disko 
   sudo disko --mode destroy,format,mount ./modules/nixos/disk-config.nix
 }
 
